@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - USDT P2P</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        USDT<span>P2P</span>
+    </div>
+
+    <a href="index.html" class="back-home">
+        Marketplace
+    </a>
+
+</header>
+
+
+<main class="dashboard">
+
+    <div class="dashboard-head">
+
+        <div>
+            <h1>My Dashboard</h1>
+            <p>Manage your P2P account</p>
+        </div>
+
+        <button class="signup-btn" onclick="logoutDemo()">
+            Logout
+        </button>
+
+    </div>
+
+
+    <!-- BALANCE CARDS -->
+
+    <section class="balance-grid">
+
+        <div class="balance-card">
+
+            <span>USDT Balance</span>
+
+            <strong>0.00 USDT</strong>
+
+            <small>Demo balance</small>
+
+        </div>
+
+
+        <div class="balance-card">
+
+            <span>INR Balance</span>
+
+            <strong>₹0.00</strong>
+
+            <small>Demo balance</small>
+
+        </div>
+
+
+        <div class="balance-card">
+
+            <span>Total Trades</span>
+
+            <strong>0</strong>
+
+            <small>No trades yet</small>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section class="dashboard-section">
+
+        <h2>Quick Actions</h2>
+
+        <div class="action-grid">
+
+            <button onclick="openMarketplace()">
+                🟢 Buy USDT
+            </button>
+
+            <button onclick="openMarketplace()">
+                🔴 Sell USDT
+            </button>
+
+            <button onclick="showComingSoon()">
+                📋 My Orders
+            </button>
+
+            <button onclick="showComingSoon()">
+                ⚙️ Settings
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECENT TRADES -->
+
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <h2>Recent Trades</h2>
+
+            <span>0 trades</span>
+
+        </div>
+
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📊
+            </div>
+
+            <h3>No trades yet</h3>
+
+            <p>
+                Your completed P2P trades will appear here.
+            </p>
+
+            <button
+                class="trade-btn"
+                onclick="openMarketplace()"
+            >
+                Explore Marketplace
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 USDT P2P Demo Marketplace
+</footer>
+
+
+<script>
+
+function openMarketplace() {
+
+    window.location.href = "index.html";
+
+}
+
+
+function showComingSoon() {
+
+    alert(
+        "This feature is part of the next version."
+    );
+
+}
+
+
+function logoutDemo() {
+
+    alert("Demo logout successful.");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Offer - USDT P2P</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">USDT<span>P2P</span></div>
+    <a href="dashboard.html" class="back-home">Dashboard</a>
+</header>
+
+<main class="auth-page">
+
+    <div class="auth-card offer-card">
+
+        <h1>Create P2P Offer</h1>
+        <p class="auth-subtitle">
+            Create an offer for the marketplace
+        </p>
+
+        <form onsubmit="createOffer(event)">
+
+            <label>Offer Type</label>
+            <select id="offerType" required>
+                <option value="sell">Sell USDT</option>
+                <option value="buy">Buy USDT</option>
+            </select>
+
+            <label>USDT Amount</label>
+            <input
+                type="number"
+                id="usdtAmount"
+                placeholder="Example: 500"
+                min="1"
+                step="0.01"
+                required
+            >
+
+            <label>Price per USDT (INR)</label>
+            <input
+                type="number"
+                id="usdtPrice"
+                placeholder="Example: 91.20"
+                min="0.01"
+                step="0.01"
+                required
+            >
+
+            <label>Payment Method</label>
+            <select id="paymentMethod" required>
+                <option value="">Select payment method</option>
+                <option value="UPI">UPI</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+            </select>
+
+            <label>Minimum Order (USDT)</label>
+            <input
+                type="number"
+                id="minOrder"
+                placeholder="Example: 10"
+                min="1"
+                step="0.01"
+                required
+            >
+
+            <label>Maximum Order (USDT)</label>
+            <input
+                type="number"
+                id="maxOrder"
+                placeholder="Example: 500"
+                min="1"
+                step="0.01"
+                required
+            >
+
+            <button type="submit" class="auth-btn">
+                Publish Offer
+            </button>
+
+        </form>
+
+        <p class="switch-auth">
+            <a href="dashboard.html">← Back to Dashboard</a>
+        </p>
+
+    </div>
+
+</main>
+
+<footer>
+    © 2026 USDT P2P Demo Marketplace
+</footer>
+
+<script>
+
+function createOffer(event) {
+
+    event.preventDefault();
+
+    const type = document.getElementById("offerType").value;
+    const amount = Number(document.getElementById("usdtAmount").value);
+    const price = Number(document.getElementById("usdtPrice").value);
+    const payment = document.getElementById("paymentMethod").value;
+    const minOrder = Number(document.getElementById("minOrder").value);
+    const maxOrder = Number(document.getElementById("maxOrder").value);
+
+    if (minOrder > maxOrder) {
+        alert("Minimum order cannot be greater than maximum order.");
+        return;
+    }
+
+    if (maxOrder > amount) {
+        alert("Maximum order cannot be greater than available USDT amount.");
+        return;
+    }
+
+    const offer = {
+        id: Date.now(),
+        type: type,
+        amount: amount,
+        price: price,
+        payment: payment,
+        minOrder: minOrder,
+        maxOrder: maxOrder,
+        status: "Active"
+    };
+
+    localStorage.setItem("myOffer", JSON.stringify(offer));
+
+    alert(
+        "Offer Published Successfully!\n\n" +
+        "Type: " + type.toUpperCase() +
+        "\nUSDT: " + amount +
+        "\nPrice: ₹" + price +
+        "\nPayment: " + payment
+    );
+
+    window.location.href = "dashboard.html";
+}
+
+</script>
+
+</body>
+</html>

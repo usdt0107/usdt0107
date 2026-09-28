@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - USDT P2P</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            USDT<span>P2P</span>
+        </div>
+
+        <a href="index.html" class="back-home">
+            Home
+        </a>
+
+    </header>
+
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <h1>Welcome Back</h1>
+
+            <p class="auth-subtitle">
+                Login to your P2P account
+            </p>
+
+
+            <form onsubmit="loginDemo(event)">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit" class="auth-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="switch-auth">
+                Don't have an account?
+
+                <a href="signup.html">
+                    Create account
+                </a>
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function loginDemo(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("email").value;
+
+            alert(
+                "Demo Login\n\n" +
+                "Account: " + email +
+                "\n\nReal authentication will be connected later."
+            );
+        }
+
+    </script>
+
+</body>
+</html>

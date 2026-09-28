@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDT P2P Marketplace</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">USDT<span>P2P</span></div>
+
+        <nav>
+            <button class="login-btn">Login</button>
+            <button class="signup-btn">Sign Up</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h1>Buy & Sell USDT P2P</h1>
+            <p>Trade directly with verified users.</p>
+        </section>
+
+        <section class="trade-box">
+
+            <div class="tabs">
+                <button id="buyTab" class="tab active" onclick="setMode('buy')">
+                    Buy USDT
+                </button>
+
+                <button id="sellTab" class="tab" onclick="setMode('sell')">
+                    Sell USDT
+                </button>
+            </div>
+
+            <div class="calculator">
+
+                <div>
+                    <label>Amount</label>
+
+                    <div class="input-box">
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="Enter amount"
+                            oninput="calculate()"
+                        >
+
+                        <span id="currency">USDT</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Price</label>
+
+                    <div class="input-box">
+                        <input
+                            type="number"
+                            id="price"
+                            value="91.20"
+                            oninput="calculate()"
+                        >
+
+                        <span>INR</span>
+                    </div>
+                </div>
+
+                <div class="total">
+                    <span>Total</span>
+                    <strong id="total">₹0.00</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="market">
+
+            <div class="market-title">
+                <h2 id="marketTitle">Buy USDT Offers</h2>
+                <span>Live Marketplace</span>
+            </div>
+
+            <div class="market-header">
+                <div>Trader</div>
+                <div>Price</div>
+                <div>Available</div>
+                <div>Payment</div>
+                <div>Action</div>
+            </div>
+
+            <div class="offer">
+
+                <div>
+                    <strong>Trader_01</strong>
+                    <small>✓ Verified</small>
+                </div>
+
+                <div>₹91.20</div>
+                <div>500 USDT</div>
+                <div>UPI</div>
+
+                <button class="trade-btn" onclick="startTrade('Trader_01')">
+                    Trade
+                </button>
+
+            </div>
+
+            <div class="offer">
+
+                <div>
+                    <strong>CryptoTrader</strong>
+                    <small>✓ Verified</small>
+                </div>
+
+                <div>₹91.35</div>
+                <div>1,200 USDT</div>
+                <div>Bank</div>
+
+                <button class="trade-btn" onclick="startTrade('CryptoTrader')">
+                    Trade
+                </button>
+
+            </div>
+
+            <div class="offer">
+
+                <div>
+                    <strong>USDT_Pro</strong>
+                    <small>✓ Verified</small>
+                </div>
+
+                <div>₹91.50</div>
+                <div>800 USDT</div>
+                <div>UPI</div>
+
+                <button class="trade-btn" onclick="startTrade('USDT_Pro')">
+                    Trade
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 USDT P2P Demo Marketplace
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - USDT P2P</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">USDT<span>P2P</span></div>
+    <a href="index.html" class="back-home">Home</a>
+</header>
+
+<main class="auth-page">
+
+    <div class="auth-card">
+
+        <h1>Create Account</h1>
+
+        <p class="auth-subtitle">
+            Join the P2P marketplace
+        </p>
+
+        <form onsubmit="signupDemo(event)">
+
+            <label>Full Name</label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label>Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                minlength="8"
+                required
+            >
+
+            <button type="submit" class="auth-btn">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="switch-auth">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+    </div>
+
+</main>
+
+<script>
+function signupDemo(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    alert(
+        "Demo Account Created\n\n" +
+        "Welcome, " + name + "!"
+    );
+}
+</script>
+
+</body>
+</html>
