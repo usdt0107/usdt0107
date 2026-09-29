@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Offers - USDT P2P</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">USDT<span>P2P</span></div>
+    <a href="dashboard.html" class="back-home">Dashboard</a>
+</header>
+
+<main class="dashboard">
+
+    <div class="dashboard-head">
+        <div>
+            <h1>My Offers</h1>
+            <p>Manage your marketplace offers</p>
+        </div>
+
+        <button class="auth-btn small-btn" onclick="createNewOffer()">
+            + Create Offer
+        </button>
+    </div>
+
+    <section class="dashboard-section">
+
+        <div id="offersContainer"></div>
+
+        <div id="emptyOffers" class="empty-state">
+            <div class="empty-icon">📢</div>
+            <h3>No offers yet</h3>
+            <p>Create your first P2P offer to display it here.</p>
+
+            <button class="trade-btn" onclick="createNewOffer()">
+                Create Offer
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 USDT P2P Demo Marketplace
+</footer>
+
+<script>
+
+function createNewOffer() {
+    window.location.href = "create-offer.html";
+}
+
+function loadOffers() {
+
+    const container = document.getElementById("offersContainer");
+    const empty = document.getElementById("emptyOffers");
+
+    const savedOffer = localStorage.getItem("myOffer");
+
+    if (!savedOffer) {
+        container.innerHTML = "";
+        empty.style.display = "block";
+        return;
+    }
+
+    const offer = JSON.parse(savedOffer);
+
+    empty.style.display = "none";
+
+    const totalValue = offer.amount * offer.price;
+
+    container.innerHTML = `
+        <div class="offer-list-card">
+
+            <div class="offer-top">
+
+                <div>
+                    <span class="offer-type ${offer.type}">
+                        ${offer.type.toUpperCase()} USDT
+                    </span>
+
+                    <h2>${offer.amount.toLocaleString("en-IN")} USDT</h2>
+                </div>
+
+                <span class="offer-status">
+                    ● ${offer.status}
+                </span>
+
+            </div>
+
+            <div class="offer-details">
+
+                <div>
+                    <span>Price</span>
+                    <strong>₹${offer.price.toFixed(2)}</strong>
+                </div>
+
+                <div>
+                    <span>Payment</span>
+                    <strong>${offer.payment}</strong>
+                </div>
+
+                <div>
+                    <span>Min Order</span>
+                    <strong>${offer.minOrder} USDT</strong>
+                </div>
+
+                <div>
+                    <span>Max Order</span>
+                    <strong>${offer.maxOrder} USDT</strong>
+                </div>
+
+            </div>
+
+            <div class="offer-footer">
+
+                <span>
+                    Total Value:
+                    <strong>₹${totalValue.toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    })}</strong>
+                </span>
+
+                <button class="delete-offer" onclick="deleteOffer()">
+                    Delete Offer
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+function deleteOffer() {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this offer?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    localStorage.removeItem("myOffer");
+
+    loadOffers();
+
+    alert("Offer deleted successfully.");
+}
+
+loadOffers();
+
+</script>
+
+</body>
+</html>
